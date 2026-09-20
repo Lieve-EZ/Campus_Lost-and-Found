@@ -15,7 +15,7 @@ export default function ItemCard({ item, matchedItem, onSelect }) {
       <span className="text-xs text-muted">{formatDate(item.created_at)}</span>
     </div>
     <h3 className="mt-5 font-display text-xl font-bold leading-tight">{item.title}</h3>
-    {item.photo_url && <img src={item.photo_url} alt="" className="mt-4 aspect-[4/3] w-full object-cover" />}
+    {item.photo_url && <img src={`${import.meta.env.VITE_API_URL}${item.photo_url}`} alt="" className="mt-4 aspect-[4/3] w-full object-cover" />}
     <p className="mt-2 line-clamp-3 text-sm leading-6 text-muted">{item.description || item.desc || 'No description provided.'}</p>
     <div className="mt-auto space-y-2 pt-6 text-sm">
       <p className="flex gap-2 text-ink"><span className="w-5 text-center text-muted">@</span>{item.location || 'Location not shared'}</p>
