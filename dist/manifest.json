@@ -1,0 +1,9 @@
+{
+  "name": "Campus Lost & Found",
+  "short_name": "Campus L&F",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAFAF7",
+  "theme_color": "#1E2A3A",
+  "icons": [{ "src": "/brand-mark.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

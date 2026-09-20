@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { font-family: 'Inter', sans-serif; color: #1E2A3A; background: #FAFAF7; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; background-color: #FAFAF7; background-image: repeating-linear-gradient(0deg, rgba(30,42,58,.018) 0, rgba(30,42,58,.018) 1px, transparent 1px, transparent 4px), repeating-linear-gradient(90deg, rgba(30,42,58,.012) 0, rgba(30,42,58,.012) 1px, transparent 1px, transparent 5px); }
+button, input, textarea { font: inherit; }
+::selection { background: #DDE9DE; }
+.cork-texture { background-color: #E9E3D7; background-image: radial-gradient(rgba(30,42,58,.09) .75px, transparent .75px); background-size: 13px 13px; }
+.auth-shell { background: #1E2A3A; }
+.auth-story { background-color: #1E2A3A; background-image: linear-gradient(135deg, rgba(108,141,113,.28), transparent 46%), radial-gradient(circle at 82% 18%, rgba(221,233,222,.16) 0 1px, transparent 1.5px), linear-gradient(32deg, transparent 62%, rgba(250,250,247,.06) 62% 63%, transparent 63%); background-size: auto, 18px 18px, auto; }
+.hero-section { position: relative; isolation: isolate; overflow: hidden; }
+.orbit-field { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+.orbit-field:active { cursor: grabbing; }
+.headline-highlight { display: inline-block; position: relative; color: #6B8F71; }
+.headline-highlight::after { content: ''; position: absolute; right: -.08em; bottom: .02em; left: -.04em; z-index: -1; height: .28em; background: #DDE9DE; transform: rotate(-1.5deg); }
+.page-write :is(header, main, footer) :is(h1, h2, h3, p, a, button, label, li, span) { animation: write-in 1.3s cubic-bezier(.22, .8, .28, 1) both; animation-delay: calc(.18s + var(--write-step, 0) * .13s); }
+.page-write :is(header, main, footer) :is(h1, h2, h3, p, a, button, label, li, span):nth-child(2) { --write-step: 1; }
+.page-write :is(header, main, footer) :is(h1, h2, h3, p, a, button, label, li, span):nth-child(3) { --write-step: 2; }
+.page-write :is(header, main, footer) :is(h1, h2, h3, p, a, button, label, li, span):nth-child(4) { --write-step: 3; }
+.page-write :is(header, main, footer) :is(h1, h2, h3, p, a, button, label, li, span):nth-child(5) { --write-step: 4; }
+@keyframes write-in { from { opacity: 0; clip-path: inset(0 100% 0 0); transform: translateY(.12em); } to { opacity: 1; clip-path: inset(0 0 0 0); transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { .page-write :is(header, main, footer) :is(h1, h2, h3, p, a, button, label, li, span) { animation: none; } }
+@media (max-width: 767px) { .auth-story { min-height: 410px; } }
+
+@layer components {
+  .eyebrow { @apply font-display text-xs font-bold uppercase tracking-[0.16em] text-sage; }
+  .button-primary { @apply inline-flex items-center justify-center gap-2 rounded-sm bg-ink px-5 py-3 font-semibold text-paper transition hover:bg-[#2d3b50] focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2 focus:ring-offset-paper; }
+  .button-secondary { @apply inline-flex items-center justify-center gap-2 rounded-sm border border-ink/20 bg-paper px-5 py-3 font-semibold text-ink transition hover:border-ink hover:bg-white focus:outline-none focus:ring-2 focus:ring-ink focus:ring-offset-2; }
+  .field { @apply mt-2 w-full rounded-sm border border-line bg-white/70 px-4 py-3 text-ink outline-none transition placeholder:text-muted/70 focus:border-ink focus:ring-2 focus:ring-ink/10; }
+}
