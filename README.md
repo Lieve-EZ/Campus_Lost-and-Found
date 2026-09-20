@@ -1,2 +1,1 @@
-# Campus_Lost-and-Found
-A project regarding the lost items inside a campus.
+Campus Lost and Found, System to Find you things.

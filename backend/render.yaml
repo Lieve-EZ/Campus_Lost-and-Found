@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: campus-lost-found-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: campus-lost-found-db
+          property: connectionString
+      - key: CORS_ORIGINS
+        sync: false
+      - key: STORAGE_BACKEND
+        value: s3
+      - key: S3_BUCKET
+        sync: false
+      - key: S3_REGION
+        value: ap-south-1
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: PUBLIC_MEDIA_URL
+        sync: false
+
+databases:
+  - name: campus-lost-found-db
+    databaseName: lost_found
+    plan: free
